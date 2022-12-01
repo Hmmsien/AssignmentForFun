@@ -107,17 +107,15 @@ public class ArrayListsTest {
     public void removeAllTest1(){
         // Given
         ArrayList<Integer> original = new ArrayList<Integer>();
-        original.add(5);
-        original.add(5);
+        original.add(7);
+        original.add(7);
         original.add(5);
         original.add(7);
         original.add(7);
         // When
         Integer toRemove = 5;
         ArrayList<Integer> actual = arrayLists.removeAll(original, toRemove);
-        original.remove(0);
-        original.remove(0);
-        original.remove(0);
+        original.remove(2);
         // Then
         Assert.assertEquals(original, actual);
     }
@@ -127,8 +125,8 @@ public class ArrayListsTest {
         // Given
         ArrayList<Integer> original = new ArrayList<Integer>();
         original.add(5);
-        original.add(7);
         original.add(5);
+        original.add(7);
         original.add(7);
         original.add(7);
         // When
