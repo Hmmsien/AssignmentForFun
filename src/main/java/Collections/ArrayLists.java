@@ -1,8 +1,7 @@
 package Collections;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ArrayLists {
 
@@ -25,7 +24,27 @@ public class ArrayLists {
         return original;
     }
 
-    public boolean happyList(ArrayList<String> original) {
-        return false;
+    public static boolean happyList(ArrayList<String> original) {
+        if(original.size() < 2 || original == null)
+            return true;
+        int count = 0;
+        // iterate arraylist
+        for (int i = 0; i < original.size() - 1; i++) {
+            String str = original.get(i);
+            for (int j = 0; j < str.length(); j++) {
+                if(helper(original.get(i+1)).contains(str.charAt(j))){
+                    count++;
+                    break;
+                }
+            }
+        }
+
+        return count == original.size() - 1? true :false;
+    }
+
+    static Set helper(String str) {
+        Set<Character> charsSet = str.chars()
+                .mapToObj(e->(char)e).collect(Collectors.toSet());
+        return charsSet;
     }
 }
